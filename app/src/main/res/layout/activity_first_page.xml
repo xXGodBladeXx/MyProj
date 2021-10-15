@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/back"
+    android:orientation="vertical"
+    tools:context=".FirstPage">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="225dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="Lets get started!" />
+
+    <Button
+        android:id="@+id/LoginStart"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="login"
+        android:text="Login"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="225dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="Want to know how the app works?"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/Howitworksbutton"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/roundbutton"
+        android:onClick="howitworks"
+        android:text="About"
+        android:textSize="30dp"
+        />
+
+</LinearLayout>

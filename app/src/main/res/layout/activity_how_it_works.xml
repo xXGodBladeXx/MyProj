@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/back"
+    tools:context=".HowItWorks">
+
+  <TextView
+      android:id="@+id/textViewTitle"
+      android:layout_width="300dp"
+      android:layout_height="100dp"
+      android:layout_gravity="center"
+      android:ems="10"
+      android:gravity="center"
+      android:textSize="45dp"
+      android:text="how to start ?"
+      />
+
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="300dp"
+      android:layout_height="320dp"
+      android:layout_gravity="center"
+      android:ems="10"
+      android:gravity="center"
+      android:textSize="20dp"
+      android:text="first of all you have to make an account that will allow you to access our app, second of all login with your email and password and press im driving, lastly put your phone down and drive safely and the app will do the rest !"
+      android:layout_marginTop="20dp"
+      />
+
+</LinearLayout>

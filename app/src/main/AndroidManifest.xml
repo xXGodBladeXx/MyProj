@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
         <activity
+            android:name=".Camera_Activity"
+            android:exported="true" />
+        <activity
             android:name=".Speak"
             android:exported="true" />
         <activity

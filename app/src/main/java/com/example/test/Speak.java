@@ -44,7 +44,6 @@ public class Speak extends AppCompatActivity {
         buttonS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "THIS IS SPEAK", Toast.LENGTH_LONG).show();
                 speak();
             }
         });

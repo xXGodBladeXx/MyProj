@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -32,7 +33,7 @@ public class Camera_Activity extends AppCompatActivity implements View.OnClickLi
         buttoncam = findViewById(R.id.button_cam);
         buttoncam.setOnClickListener(this);
         buttongal = findViewById(R.id.button_gal);
-        buttoncam.setOnClickListener(this);
+        buttongal.setOnClickListener(this);
         img = findViewById(R.id.img);
     }
 
@@ -51,7 +52,7 @@ public class Camera_Activity extends AppCompatActivity implements View.OnClickLi
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST) {
-            if (requestCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 pic = (Bitmap) data.getExtras().get("data");
                 img.setImageBitmap(pic);
             }

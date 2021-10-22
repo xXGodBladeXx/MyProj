@@ -38,24 +38,19 @@ public class Login extends AppCompatActivity implements View.OnLongClickListener
 
     }
 
-    public void login(View view) {
+   public void login(View view) {
         Intent intent = new Intent(  this, Driving.class);
         intent.putExtra("name",editTextTextPersonName.getText().toString());
-        String pass = editTextTextPassword.getText().toString();
-        String upperCaseChars = "(.*[A-Z].*)";
-        String lowerCaseChars = "(.*[a-z].*)";
-        String numbers = "(.*[0-9].*)";
-      //  if(pass.length()>=8 && pass.contains(upperCaseChars) && pass.contains(numbers) && pass.contains(lowerCaseChars)) {
             if (editTextTextPersonName.getText().toString().contains("@") && editTextTextPersonName.getText().toString().contains(".")) {
                 SharedPreferences sp = getSharedPreferences("settings",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("email",editTextTextPersonName.getText().toString());
                 editor.putString("password",editTextTextPassword.getText().toString());
-                editor.commit();
                 intent.putExtra("name",editTextTextPersonName.getText().toString());
+                editor.commit();
+
                 startActivity(intent);
             }
- //       }
     }
     public void signup(View view){
         Intent intent = new Intent(  this, SignUp.class);

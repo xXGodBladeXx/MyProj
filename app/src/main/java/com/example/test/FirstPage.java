@@ -18,7 +18,7 @@ public class FirstPage extends AppCompatActivity {
         startActivity(intent);
     }
     public void howitworks(View view){
-        Intent intent = new Intent(  this, Camera_Activity.class);
+        Intent intent = new Intent(  this, Speak.class);
         startActivity(intent);
     }
 

@@ -2,6 +2,7 @@ package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -46,8 +47,18 @@ public class Speak extends AppCompatActivity {
             public void onClick(View view) {
                 speak();
             }
-        });
+        });//
+
+
+
     }
+    public  void onBroadcastSentBtnClicked(View v){
+        Intent intent=new Intent();
+        intent.setAction(("com.basel.Speak"));
+        intent.setFlags(intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+        sendBroadcast(intent);
+    }
+
     public void speak() {
         String text = EditText.getText().toString();
         TTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);

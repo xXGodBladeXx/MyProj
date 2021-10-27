@@ -55,7 +55,7 @@ public class Speak extends AppCompatActivity {
     public  void onBroadcastSentBtnClicked(View v){
         Intent intent=new Intent();
         intent.setAction(("com.basel.Speak"));
-        intent.setFlags(intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+        intent.setFlags(intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         sendBroadcast(intent);
     }
 

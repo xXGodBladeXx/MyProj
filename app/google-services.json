@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "92506483011",
+    "project_id": "basels-project",
+    "storage_bucket": "basels-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92506483011:android:644947f8c1ed26e16aa7f6",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92506483011-mgsoub83md3lg41jmaeb26km4aml049t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuoA_MRmQqmkOHDQHn1boZjanJ0issd2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92506483011-mgsoub83md3lg41jmaeb26km4aml049t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

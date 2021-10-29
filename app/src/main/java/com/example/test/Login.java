@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity implements View.OnLongClickListener
     private Button loginc;
     private EditText editTextTextPersonName;
     private EditText editTextTextPassword;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;//auth = authentication אימות
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,22 +42,16 @@ public class Login extends AppCompatActivity implements View.OnLongClickListener
         String password = sp.getString("password", "");
         if (!email.equals("") && !password.equals("")) {
             editTextTextPersonName.setText(email);
-            editTextTextPersonName.setText(password);
-
         }
 
     }
 
     public void login(View view) {
-   if (editTextTextPersonName.getText().toString().contains("@") &&
-                editTextTextPersonName.getText().toString().contains(".")) {
             SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             editor.putString("email", editTextTextPersonName.getText().toString());
-            editor.putString("password", editTextTextPassword.getText().toString());
             editor.commit();
             loginfb(editTextTextPersonName.getText().toString(),editTextTextPassword.getText().toString());
-        }
     }
 
     public void signup(View view) {
@@ -118,6 +112,7 @@ public class Login extends AppCompatActivity implements View.OnLongClickListener
                             Log.d(TAG, "signInWithEmail:success");
                             Intent i = new Intent(Login.this, Driving.class);
                             FirebaseUser user = mAuth.getCurrentUser();
+                            startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());

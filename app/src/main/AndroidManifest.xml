@@ -13,16 +13,16 @@
             android:name=".Camera_Activity"
             android:exported="true" />
         <activity
-            android:name=".Speak"
+            android:name=".Speak_Activity"
             android:exported="true" />
         <activity
-            android:name=".Arraylist"
+            android:name=".Arraylist_Activity"
             android:exported="true" />
         <activity
-            android:name=".HowItWorks"
+            android:name=".HowItWorks_Activity"
             android:exported="true" />
         <activity
-            android:name=".FirstPage"
+            android:name=".FirstPage_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,18 +31,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Driving"
+            android:name=".Driving_Activity"
             android:exported="true" />
         <activity
             android:name=".Menu_Activity"
             android:exported="true" />
         <activity
-            android:name=".SignUp"
+            android:name=".SignUp_Activity"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".Login_Activity"
             android:exported="true" />
-        <receiver android:name=".MassageReceiver"
+        <receiver android:name=".MassageReceiver_Activity"
             android:enabled="true"
             android:exported="true">
 

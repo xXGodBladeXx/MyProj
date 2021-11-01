@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@drawable/back"
     android:orientation="vertical"
-    tools:context=".Driving">
+    tools:context=".Driving_Activity">
     <Button
         android:id="@+id/buttonDrive"
         android:layout_width="200dp"

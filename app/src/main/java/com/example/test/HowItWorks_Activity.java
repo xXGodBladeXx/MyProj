@@ -1,18 +1,13 @@
 package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.IntentFilter;
 import android.os.Bundle;
 
-public class Driving extends AppCompatActivity {
-    public static final String BROADCAST = "PACKAGE_NAME.android.action.broadcast";
+public class HowItWorks_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driving);
-
-
+        setContentView(R.layout.activity_how_it_works);
     }
 }

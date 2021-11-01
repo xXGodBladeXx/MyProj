@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class MassageReceiver extends BroadcastReceiver {
+public class MassageReceiver_Activity extends BroadcastReceiver {
     private TextToSpeech TTS;
 
         @Override

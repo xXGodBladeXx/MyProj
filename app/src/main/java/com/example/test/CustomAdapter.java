@@ -15,10 +15,10 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class CustomAdapter extends ArrayAdapter<Massage> {
+public class CustomAdapter extends ArrayAdapter<Massage_Activity> {
     private Context context;
     private int resource;
-    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Massage> objects) {
+    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Massage_Activity> objects) {
         super(context, resource, objects);
         this.context=context;
         this.resource=resource;
@@ -29,7 +29,7 @@ public class CustomAdapter extends ArrayAdapter<Massage> {
         if(view== null){
             view = LayoutInflater.from(context).inflate(resource,parent,false);
         }
-        Massage msg = getItem(position);
+        Massage_Activity msg = getItem(position);
         if(msg!=null){
             ImageView imageView = view.findViewById(R.id.iamge);
             TextView textView = view.findViewById(R.id.textview123);

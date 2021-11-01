@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@drawable/back"
     android:orientation="vertical"
-    tools:context=".FirstPage">
+    tools:context=".FirstPage_Activity">
 
     <TextView
         android:id="@+id/textView"

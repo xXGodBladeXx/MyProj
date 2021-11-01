@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/settingsbox"
-        android:title="Settings" />
+        android:id="@+id/Camera"
+        android:title="Camera" />
     <item
         android:id="@+id/exitbox"
         android:title="Exit"/>

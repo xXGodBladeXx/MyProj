@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class Speak extends AppCompatActivity {
+public class Speak_Activity extends AppCompatActivity {
     private TextToSpeech TTS;
     private EditText EditText;
     private Button buttonS;

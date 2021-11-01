@@ -16,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp_Activity extends AppCompatActivity {
     private static final String TAG = "FireBase";
     private EditText password;
     private EditText email;
@@ -40,12 +40,12 @@ public class SignUp extends AppCompatActivity {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Intent intent = new Intent(SignUp.this, Driving.class);
+                    Intent intent = new Intent(SignUp_Activity.this, Driving_Activity.class);
                     startActivity(intent);
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(SignUp.this, "Authentication failed.",
+                    Toast.makeText(SignUp_Activity.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
                 }
 

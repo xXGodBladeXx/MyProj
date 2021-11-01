@@ -3,6 +3,7 @@ package com.example.test;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +26,9 @@ public class Menu_Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.settingsbox:
+            case R.id.Camera:
+                Intent intent = new Intent(  this, Camera_Activity.class);
+                startActivity(intent);
                 Toast.makeText(Menu_Activity.this, "Settings", Toast.LENGTH_LONG).show();
                 break;
             case R.id.exitbox:

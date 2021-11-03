@@ -1,12 +1,12 @@
 package com.example.test;
 
-public class Massage_Activity {
+public class Massage {
     private String description;
     private int resid;
     private boolean ishappy;
     private int amount;
 
-    public Massage_Activity(String description, int resid, boolean ishappy, int amount) {
+    public Massage(String description, int resid, boolean ishappy, int amount) {
         this.description = description;
         this.resid = resid;
         this.ishappy = ishappy;

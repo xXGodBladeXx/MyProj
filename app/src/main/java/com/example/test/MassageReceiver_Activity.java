@@ -19,7 +19,7 @@ public class MassageReceiver_Activity extends BroadcastReceiver {
             if (intent.getAction().equals(Telephony.Sms.Intents.SMS_RECEIVED_ACTION)) {
                 SmsMessage[] smsMessages = Telephony.Sms.Intents.getMessagesFromIntent(intent);
                 for (SmsMessage message : smsMessages) {
-                    Toast.makeText(context, "Haneen", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "basel", Toast.LENGTH_SHORT).show();
                 }
             }
         }

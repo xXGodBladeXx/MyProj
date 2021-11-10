@@ -28,11 +28,15 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
+
+        mAuth = FirebaseAuth.getInstance();//a method that connects the firebase console with the project
         editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
         editTextTextPassword = findViewById(R.id.editTextTextPassword);
         loginc = findViewById(R.id.buttonLogin);
+
+        //sets the OnClickListener on the wanted button
         loginc.setOnLongClickListener(this);
+
         SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
         String email = sp.getString("email", "");
         String password = sp.getString("password", "");
@@ -43,10 +47,17 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
     }
 
     public void login(View view) {
+        //saving email of user in a local file (settings) for future use
+        //create file if not found
             SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
+            //open editor for editing
             SharedPreferences.Editor editor = sp.edit();
+            //write the wanted settings
             editor.putString("email", editTextTextPersonName.getText().toString());
+            //saves and closes file
             editor.commit();
+
+
             loginfb(editTextTextPersonName.getText().toString(),editTextTextPassword.getText().toString());
     }
 
@@ -65,6 +76,9 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
     public void loginfb(String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    //OnCompleteListener waits for the firebase
+                    // Signin task to complete and returns
+                    // a task which we check if it was made successfully
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -75,7 +89,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
                             startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());//a description of the error for the task that wasn't successful
                             Toast.makeText(Login_Activity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }

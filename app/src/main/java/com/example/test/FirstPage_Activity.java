@@ -42,7 +42,7 @@ public class FirstPage_Activity extends AppCompatActivity implements DialogInter
     }
 
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);//object which interact with the user
         builder.setMessage("Are you sure you want to exit?");
         builder.setCancelable(false);
         builder.setPositiveButton("Yes", this);
@@ -50,13 +50,13 @@ public class FirstPage_Activity extends AppCompatActivity implements DialogInter
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
+    //the dialog interface is implemented in the top of the file that way he knows the on click is for the dialog
     public void onClick(DialogInterface dialog, int which) {
-        if (which == dialog.BUTTON_POSITIVE) {
+        if (which == dialog.BUTTON_POSITIVE) {//did the user press positive
             super.onBackPressed();
             dialog.cancel();
         }
-        if (which == dialog.BUTTON_NEGATIVE) {
+        if (which == dialog.BUTTON_NEGATIVE) {//did the user press negative
             dialog.cancel();
         }
     }

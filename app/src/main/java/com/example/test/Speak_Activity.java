@@ -27,14 +27,14 @@ public class Speak_Activity extends AppCompatActivity {
         TTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {
-                if(i == TextToSpeech.SUCCESS){
-                    int result = TTS.setLanguage(Locale.UK);
+                if(i == TextToSpeech.SUCCESS){//checks if the text to speak is ready to speak
+                    int result = TTS.setLanguage(Locale.UK);//language setter
 
                     if(result == TextToSpeech.LANG_MISSING_DATA
                             || result == TextToSpeech.LANG_NOT_SUPPORTED){
-                        Log.e("TTS", "Language not supported");
+                        Log.e("TTS", "Language not supported");//if the user inserted wrong info in the edit text
                     } else {
-                        buttonS.setEnabled(true);
+                        buttonS.setEnabled(true);//sets the button to speak to true
                     }
                 } else {
                     Log.e("TTS", "Initailiziation failed");
@@ -44,28 +44,19 @@ public class Speak_Activity extends AppCompatActivity {
         EditText =findViewById(R.id.edit_text);
         buttonS.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {//on click of the button for it to speak
                 speak();
             }
-        });//
-
-
-
-    }
-    public  void onBroadcastSentBtnClicked(View v){
-        Intent intent=new Intent();
-        intent.setAction(("com.basel.Speak"));
-        intent.setFlags(intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        sendBroadcast(intent);
+        });
     }
 
     public void speak() {
         String text = EditText.getText().toString();
-        TTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+        TTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);//takes the text and speaks it using the language that is preset
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onDestroy() {//if the app is finished it makes the speaking stop
         if(TTS !=null) {
             TTS.stop();
             TTS.shutdown();

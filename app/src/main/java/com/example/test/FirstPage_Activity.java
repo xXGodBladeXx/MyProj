@@ -33,6 +33,9 @@ public class FirstPage_Activity extends AppCompatActivity implements DialogInter
             case R.id.exitbox:
                 finish();
                 break;
+            case R.id.speak:
+                Intent i = new Intent(  this, Speak_Activity.class);
+                startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -62,7 +65,7 @@ public class FirstPage_Activity extends AppCompatActivity implements DialogInter
     }
 
     public void howitworks(View view){
-        Intent intent = new Intent(  this, Speak_Activity.class);
+        Intent intent = new Intent(  this, HowItWorks_Activity.class);
         startActivity(intent);
     }
 

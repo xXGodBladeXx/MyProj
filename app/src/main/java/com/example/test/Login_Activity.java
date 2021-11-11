@@ -37,10 +37,11 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         //sets the OnClickListener on the wanted button
         loginc.setOnLongClickListener(this);
 
-        SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
-        String email = sp.getString("email", "");
-        String password = sp.getString("password", "");
-        if (!email.equals("") && !password.equals("")) {
+        SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);//creates a local file which saves the sp in it
+        String email = sp.getString("email", "");//saves the email in the local file
+        String password = sp.getString("password", "");//saves the password in the local file
+        if (!email.equals("") && !password.equals("")) {//checks if the edit text is empty and if it is it
+            // presets the email with the email that it saved from before
             editTextTextPersonName.setText(email);
         }
 
@@ -74,7 +75,8 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
     }
 
     public void loginfb(String email, String password){
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.signInWithEmailAndPassword(email, password)//a method that is premade in the fire base that checks the
+                // email and password of the user and signs him in accordingly
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     //OnCompleteListener waits for the firebase
                     // Signin task to complete and returns

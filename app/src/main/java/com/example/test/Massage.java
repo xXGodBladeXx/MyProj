@@ -2,7 +2,7 @@ package com.example.test;
 
 public class Massage {
     private String description;
-    private int resid;
+    private int resid;//an id for the item to show up
     private boolean ishappy;
     private int amount;
 

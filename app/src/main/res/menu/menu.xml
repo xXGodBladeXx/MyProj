@@ -6,6 +6,9 @@
         android:id="@+id/Camera"
         android:title="Camera" />
     <item
+        android:id="@+id/speak"
+        android:title="Speak"/>
+    <item
         android:id="@+id/exitbox"
         android:title="Exit"/>
 </menu>

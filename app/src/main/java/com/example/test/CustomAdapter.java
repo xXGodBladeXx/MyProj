@@ -14,22 +14,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.List;
-
+//a conector from the data to a view
 public class CustomAdapter extends ArrayAdapter<Massage> {
-    private Context context;
-    private int resource;
+    private Context context;//view for what i want to show
+    private int resource;//id for xml in which order the arraylist will be shown
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Massage> objects) {
         super(context, resource, objects);
         this.context=context;
         this.resource=resource;
     }
-
+    //a method that is called when the item is being created in the method the item is inflated by LayoutInflater
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = convertView;
         if(view== null){
-            view = LayoutInflater.from(context).inflate(resource,parent,false);
+            view = LayoutInflater.from(context).inflate(resource,parent,false);//shows up a new item
         }
-        Massage msg = getItem(position);
+        Massage msg = getItem(position);//a counter for the resource
         if(msg!=null){
             ImageView imageView = view.findViewById(R.id.iamge);
             TextView textView = view.findViewById(R.id.textview123);
@@ -40,7 +40,7 @@ public class CustomAdapter extends ArrayAdapter<Massage> {
                     Toast.makeText(context, "added", Toast.LENGTH_LONG).show();
                 }
             });
-            imageView.setImageResource(msg.getResid());
+            imageView.setImageResource(msg.getResid());//a call for the id of the item to be a different item than before
             textView.setText(msg.getDescription());
         }
         return view;

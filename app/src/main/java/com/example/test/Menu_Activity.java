@@ -34,6 +34,10 @@ public class Menu_Activity extends AppCompatActivity {
                 break;//on the click it breaks the menu (closes it)
             case R.id.exitbox:
                 break;
+            case R.id.speak:
+                Intent i = new Intent(  this, Speak_Activity.class);
+                startActivity(i);
+
         }
             return super.onOptionsItemSelected(item);
     }

@@ -38,8 +38,8 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         loginc.setOnLongClickListener(this);
 
         SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);//creates a local file which saves the sp in it
-        String email = sp.getString("email", "");//saves the email in the local file
-        String password = sp.getString("password", "");//saves the password in the local file
+        String email = sp.getString("email", "");//the email in the local file
+        String password = sp.getString("password", "");//the password in the local file
         if (!email.equals("") && !password.equals("")) {//checks if the edit text is empty and if it is it
             // presets the email with the email that it saved from before
             editTextTextPersonName.setText(email);

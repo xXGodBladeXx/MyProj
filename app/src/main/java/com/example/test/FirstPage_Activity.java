@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 public class FirstPage_Activity extends AppCompatActivity implements DialogInterface.OnClickListener {
-
+    private Intent musicintent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +67,10 @@ public class FirstPage_Activity extends AppCompatActivity implements DialogInter
     public void howitworks(View view){
         Intent intent = new Intent(  this, HowItWorks_Activity.class);
         startActivity(intent);
+
+        musicintent = new Intent(this,MusicService.class);
+        startService(musicintent);
+
     }
 
 }

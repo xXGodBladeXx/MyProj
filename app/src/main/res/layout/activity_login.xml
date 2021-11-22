@@ -22,7 +22,7 @@
         android:gravity="center"
         android:hint="email"
         android:inputType="textEmailAddress"
-        android:textColor="@color/black"
+        android:textColor="#a3a3a3"
         android:textSize="20dp" />
 
     <EditText
@@ -37,20 +37,18 @@
         android:inputType="textPassword"
         android:textSize="20dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/black"
-
+        android:textColor="#a3a3a3"
         />
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_gravity="center"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/roundbutton"
+        android:textColorLink="#e2da66"
         android:onClick="login"
         android:text="Login"
-        android:textSize="30dp" />
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/text"
@@ -62,7 +60,7 @@
         android:textSize="20dp"
         android:text="Don't have an account?"
         android:layout_marginTop="8dp"
-        android:textColor="@color/black"
+        android:textColor="#a3a3a3"
         />
 
     <Button

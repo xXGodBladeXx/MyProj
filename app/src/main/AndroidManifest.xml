@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".Camera_Activity"
             android:exported="true" />
@@ -42,11 +47,11 @@
         <activity
             android:name=".Login_Activity"
             android:exported="true" />
-        <receiver android:name=".MassageReceiver_Activity"
-            android:enabled="true"
-            android:exported="true">
 
-        </receiver>
+        <receiver
+            android:name=".MassageReceiver_Activity"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>

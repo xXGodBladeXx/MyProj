@@ -18,7 +18,7 @@ public class MusicService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mediaplayer = MediaPlayer.create(this,R.raw.ringtone);
+        mediaplayer = MediaPlayer.create(this,R.raw.backgroundmusic);
         mediaplayer.setLooping(true);
         mediaplayer.setVolume(100,100);
     }
@@ -28,7 +28,6 @@ public class MusicService extends Service {
         mediaplayer.start();
         return super.onStartCommand(intent, flags, startId);
     }
-
     @Override
     public void onDestroy() {
         mediaplayer.stop();

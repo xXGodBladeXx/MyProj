@@ -27,7 +27,7 @@
             android:name=".HowItWorks_Activity"
             android:exported="true" />
         <activity
-            android:name=".FirstPage_Activity"
+            android:name=".Login_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +45,7 @@
             android:name=".SignUp_Activity"
             android:exported="true" />
         <activity
-            android:name=".Login_Activity"
+            android:name=".FirstPage_Activity"
             android:exported="true" />
 
         <receiver

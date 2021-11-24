@@ -8,8 +8,11 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#2C2C2A</item>
         <item name="colorSecondaryVariant">#2C2C2A</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">#a3a3a3</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+    <style name="Button.White" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/white</item>
     </style>
 </resources>

@@ -1,12 +1,16 @@
 package com.example.test;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,8 +22,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login_Activity extends AppCompatActivity implements View.OnLongClickListener {
+public class Login_Activity extends AppCompatActivity implements View.OnLongClickListener ,DialogInterface.OnClickListener {
     private static final String TAG = "FireBase";
+    private Intent musicintent;
     private Button loginc;
     private EditText editTextTextPersonName;
     private EditText editTextTextPassword;
@@ -36,7 +41,6 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
 
         //sets the OnClickListener on the wanted button
         loginc.setOnLongClickListener(this);
-
         SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);//creates a local file which saves the sp in it
         String email = sp.getString("email", "");//the email in the local file
         String password = sp.getString("password", "");//the password in the local file
@@ -44,7 +48,49 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
             // presets the email with the email that it saved from before
             editTextTextPersonName.setText(email);
         }
+        musicintent = new Intent(this,MusicService.class);
+        startService(musicintent);
 
+    }
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Camera:
+                Intent intent = new Intent(  this, Camera_Activity.class);
+                startActivity(intent);
+                Toast.makeText(Login_Activity.this, "Camera", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.exitbox:
+                finish();
+                break;
+            case R.id.speak:
+                Intent i = new Intent(  this, Speak_Activity.class);
+                startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);//object which interact with the user
+        builder.setMessage("Are you sure you want to exit?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", this);
+        builder.setNegativeButton("No", this);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    //the dialog interface is implemented in the top of the file that way he knows the on click is for the dialog
+    public void onClick(DialogInterface dialog, int which) {
+        if (which == dialog.BUTTON_POSITIVE) {//did the user press positive
+            super.onBackPressed();
+            dialog.cancel();
+        }
+        if (which == dialog.BUTTON_NEGATIVE) {//did the user press negative
+            dialog.cancel();
+        }
     }
 
     public void login(View view) {

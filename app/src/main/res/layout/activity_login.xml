@@ -11,66 +11,81 @@
 
 
 
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="300dp"
+        android:layout_height="32dp"
         android:layout_gravity="center"
         android:ems="10"
+        android:layout_marginTop="200dp"
+        android:textSize="30dp"
+        android:text="Welcome Back!"
+        android:textColor="#a3a3a3"
+        />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="300dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:textSize="15dp"
+        android:text="Login to continue"
+        android:textColor="#a3a3a3"
+        />
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:backgroundTint="#a3a3a3"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
         android:fontFamily="@android:string/autofill"
         android:gravity="center"
         android:hint="email"
         android:inputType="textEmailAddress"
         android:textColor="#a3a3a3"
+        android:textColorHint="#cacaca"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="225dp"
+        android:backgroundTint="#a3a3a3"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:ems="10"
         android:fontFamily="@android:string/autofill"
         android:gravity="center"
+        android:textColorHint="#cacaca"
         android:hint="Password"
         android:inputType="textPassword"
         android:textSize="20dp"
-        android:layout_marginTop="8dp"
         android:textColor="#a3a3a3"
         />
 
     <Button
+        android:backgroundTint="#e2da66"
         android:id="@+id/buttonLogin"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:textColorLink="#e2da66"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/black"
         android:onClick="login"
         android:text="Login"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/text"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
+        android:id="@+id/text3"
+        android:layout_width="300dp"
+        android:layout_height="25dp"
         android:layout_gravity="center"
         android:ems="10"
         android:gravity="center"
-        android:textSize="20dp"
-        android:text="Don't have an account?"
-        android:layout_marginTop="8dp"
+        android:textSize="15dp"
+        android:text="Don't have an account? signup"
         android:textColor="#a3a3a3"
-        />
-
-    <Button
-        android:id="@+id/buttonSignUp"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
         android:onClick="signup"
-        android:text="Signup"
-        android:textSize="18dp" />
-
+        />
 
 </LinearLayout>

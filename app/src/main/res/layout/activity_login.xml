@@ -42,7 +42,7 @@
         android:layout_gravity="center"
         android:fontFamily="@android:string/autofill"
         android:gravity="center"
-        android:hint="email"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColor="#a3a3a3"
         android:textColorHint="#cacaca"

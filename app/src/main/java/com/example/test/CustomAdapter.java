@@ -15,10 +15,10 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 //a conector from the data to a view
-public class CustomAdapter extends ArrayAdapter<Massage> {
+public class CustomAdapter extends ArrayAdapter<item> {
     private Context context;//view for what i want to show
     private int resource;//id for xml in which order the arraylist will be shown
-    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Massage> objects) {
+    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<item> objects) {
         super(context, resource, objects);
         this.context=context;
         this.resource=resource;
@@ -29,7 +29,7 @@ public class CustomAdapter extends ArrayAdapter<Massage> {
         if(view== null){
             view = LayoutInflater.from(context).inflate(resource,parent,false);//shows up a new item
         }
-        Massage msg = getItem(position);//a counter for the resource
+        item msg = getItem(position);//a counter for the resource
         if(msg!=null){
             ImageView imageView = view.findViewById(R.id.iamge);
             TextView textView = view.findViewById(R.id.textview123);

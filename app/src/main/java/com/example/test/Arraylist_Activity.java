@@ -17,7 +17,7 @@ public class Arraylist_Activity extends AppCompatActivity{
     //the object for the adaptor connection the data to the view
     private CustomAdapter myAdapter;
     //object containing the item to be displayed - Data
-    private ArrayList<Massage> list;
+    private ArrayList<item> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,9 @@ public class Arraylist_Activity extends AppCompatActivity{
         setContentView(R.layout.activity_arraylist);
         list = new ArrayList<>();
 
-        list.add(new Massage("this is my first Item", R.drawable.back, true, 50));
-        list.add(new Massage("this is my second Item", R.drawable.back, true, 50));
-        list.add(new Massage("this is my third Item", R.drawable.back, false, 70));
+        list.add(new item("this is my first Item", R.drawable.back, true, 50));
+        list.add(new item("this is my second Item", R.drawable.back, true, 50));
+        list.add(new item("this is my third Item", R.drawable.back, false, 70));
 
         //reference to the list view so it can programed
         myListView = findViewById(R.id.listitem);

@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.UnusedActivities;
 
 public class item {
     private String description;

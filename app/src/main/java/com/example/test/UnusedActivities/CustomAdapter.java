@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.UnusedActivities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.test.R;
 
 import java.util.List;
 //a conector from the data to a view

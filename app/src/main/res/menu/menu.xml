@@ -6,8 +6,8 @@
         android:id="@+id/Camera"
         android:title="Camera" />
     <item
-        android:id="@+id/speak"
-        android:title="Speak"/>
+        android:id="@+id/Howitworks"
+        android:title="How it works"/>
     <item
         android:id="@+id/exitbox"
         android:title="Exit"/>

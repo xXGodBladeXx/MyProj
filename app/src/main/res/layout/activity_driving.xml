@@ -15,28 +15,43 @@
         android:layout_height="32dp"
         android:layout_gravity="center"
         android:ems="10"
+        android:layout_marginTop="180dp"
         android:textSize="30dp"
         android:text="Lets drive!"
         android:textColor="#a3a3a3"
         />
     <TextView
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:ems="10"
+        android:textSize="20dp"
+        android:text="We are off!"
+        android:textColor="#a3a3a3"
+        android:layout_marginTop="100dp"
+        />
+    <TextView
         android:id="@+id/text2"
         android:layout_width="300dp"
-        android:layout_height="32dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
+        android:gravity="center"
         android:ems="10"
-        android:textSize="30dp"
-        android:text="Lets drive!"
+        android:textSize="20dp"
+        android:text="the app is active go ahead and start driving"
         android:textColor="#a3a3a3"
         />
     <Button
         android:backgroundTint="#e2da66"
-        android:id="@+id/Drivebuttonspeak"
+        android:id="@+id/buttonLogin"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:textColor="@color/black"
-        android:text="Drive"
+        android:onClick="Logingo"
+        android:text="back"
         android:textSize="18dp" />
+
 
 </LinearLayout>

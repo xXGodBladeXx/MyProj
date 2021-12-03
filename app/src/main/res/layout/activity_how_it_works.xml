@@ -7,30 +7,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/back"
+    android:background="@drawable/background_new"
     tools:context=".HowItWorks_Activity">
 
   <TextView
       android:id="@+id/textViewTitle"
       android:layout_width="300dp"
-      android:layout_height="100dp"
-      android:layout_gravity="center"
+      android:layout_height="35dp"
       android:ems="10"
-      android:gravity="center"
-      android:textSize="45dp"
-      android:text="how to start ?"
+      android:layout_marginTop="170dp"
+      android:textSize="30dp"
+      android:text="how to use the app ?"
+      android:textColor="#a3a3a3"
       />
 
   <TextView
       android:id="@+id/textView"
       android:layout_width="300dp"
-      android:layout_height="320dp"
+      android:layout_height="250dp"
       android:layout_gravity="center"
       android:ems="10"
+      android:textColor="#a3a3a3"
       android:gravity="center"
       android:textSize="20dp"
-      android:text="first of all you have to make an account that will allow you to access our app, second of all login with your email and password and press im driving, lastly put your phone down and drive safely and the app will do the rest !"
-      android:layout_marginTop="20dp"
+      android:text="first of all you have to make an account that will allow you to access our app, second of all login with your email and password, put your phone down and drive safely and the app will do the rest !"
+      android:layout_marginTop="70dp"
       />
+  <Button
+      android:backgroundTint="#e2da66"
+      android:id="@+id/backbtn"
+      android:layout_width="300dp"
+      android:layout_height="50dp"
+      android:textColor="@color/black"
+      android:onClick="Logingo"
+      android:text="back"
+      android:textSize="18dp" />
 
 </LinearLayout>

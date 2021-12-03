@@ -14,9 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
         <service
-            android:name=".TTS_service"
+            android:name=".MyTTSService"
             android:enabled="true"
             android:exported="true"></service>
+        <service
+            android:name=".TTS_service"
+            android:enabled="true"
+            android:exported="true" />
         <service
             android:name=".NotificationIntentService"
             android:exported="false" />

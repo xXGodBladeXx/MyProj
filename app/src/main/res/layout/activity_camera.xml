@@ -16,8 +16,12 @@
         android:text="take pic"
         android:id="@+id/button_cam"/>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:backgroundTint="#e2da66"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         android:text="open gallery"
         android:id="@+id/button_gal"/>
     <ImageView

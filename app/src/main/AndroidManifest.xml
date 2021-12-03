@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.test">
 
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,8 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
         <service
+            android:name=".TTS_service"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
             android:name=".NotificationIntentService"
-            android:exported="false"/>
+            android:exported="false" />
         <service
             android:name=".MusicService"
             android:enabled="true"
@@ -58,9 +62,9 @@
         <receiver
             android:name=".MassageReciver"
             android:enabled="true"
-            android:exported="true" >
-            <intent-filter android:priority="2147483647">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.action.ACTION_TTS_READ_MESSAGE" />
             </intent-filter>
         </receiver>
     </application>

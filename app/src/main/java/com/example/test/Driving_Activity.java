@@ -8,17 +8,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.test.UnusedActivities.Arraylist_Activity;
 
 public class Driving_Activity extends AppCompatActivity {
     public static final String BROADCAST = "PACKAGE_NAME.android.action.broadcast";
     private static final int NOTIFICATION_REMINDER_NIGHT = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driving);
+
 
         Intent notifyIntent = new Intent(this,MassageReciver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast

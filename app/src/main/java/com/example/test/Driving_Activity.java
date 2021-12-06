@@ -21,7 +21,7 @@ public class Driving_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_driving);
 
 
-        Intent notifyIntent = new Intent(this,MassageReciver.class);
+        Intent notifyIntent = new Intent(this,MessageReciver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast
                 (this, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);

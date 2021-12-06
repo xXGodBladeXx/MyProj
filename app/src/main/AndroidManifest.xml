@@ -14,14 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
         <service
-            android:name=".MyTTSService"
-            android:enabled="true"
-            android:exported="true"></service>
-        <service
-            android:name=".TTS_service"
-            android:enabled="true"
-            android:exported="true" />
-        <service
             android:name=".NotificationIntentService"
             android:exported="false" />
         <service
@@ -63,14 +55,6 @@
             android:name=".FirstPage_Activity"
             android:exported="true" />
 
-        <receiver
-            android:name=".MassageReciver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.action.ACTION_TTS_READ_MESSAGE" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

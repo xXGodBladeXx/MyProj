@@ -6,28 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".Camera_Activity"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/back"
+    android:background="@drawable/background_new"
     >
-
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:layout_marginTop="210dp"
+        android:textSize="30dp"
+        android:text="Lets take a photo!"
+        android:textColor="#a3a3a3"
+        />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="300dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:textSize="15dp"
+        android:text="you also can see the photos you took"
+        android:textColor="#a3a3a3"
+        />
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="190dp"
+        android:layout_gravity="center"
+        android:src="@drawable/camera_activity"
+        android:id="@+id/img"/>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="take pic"
+        android:backgroundTint="#e2da66"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:text="open camera"
         android:id="@+id/button_cam"/>
     <Button
         android:backgroundTint="#e2da66"
+        android:layout_gravity="center"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="15dp"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:text="open gallery"
         android:id="@+id/button_gal"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
-        android:id="@+id/img"/>
 
 </LinearLayout>

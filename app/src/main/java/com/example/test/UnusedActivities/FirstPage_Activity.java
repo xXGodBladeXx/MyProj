@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.UnusedActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -11,6 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.test.Camera_Activity;
+import com.example.test.HowItWorks_Activity;
+import com.example.test.Login_Activity;
+import com.example.test.MusicService;
+import com.example.test.R;
 
 public class FirstPage_Activity extends AppCompatActivity implements DialogInterface.OnClickListener {
     private Intent musicintent;
@@ -68,7 +74,7 @@ public class FirstPage_Activity extends AppCompatActivity implements DialogInter
         Intent intent = new Intent(  this, HowItWorks_Activity.class);
         startActivity(intent);
 
-        musicintent = new Intent(this,MusicService.class);
+        musicintent = new Intent(this, MusicService.class);
         startService(musicintent);
 
     }

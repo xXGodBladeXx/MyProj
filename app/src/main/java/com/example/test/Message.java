@@ -6,6 +6,12 @@ public class Message {
     private boolean isread;
     public Message(){}
 
+    public Message(String sender, String description, boolean isread) {
+        this.sender=sender;
+        this.description=description;
+        this.isread=isread;
+    }
+
     public boolean isIsread() {
         return isread;
     }

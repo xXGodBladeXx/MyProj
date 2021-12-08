@@ -52,8 +52,10 @@
             android:name=".SignUp_Activity"
             android:exported="true" />
         <activity
-            android:name=".FirstPage_Activity"
+            android:name=".UnusedActivities.FirstPage_Activity"
             android:exported="true" />
+        <receiver android:name=".MessageReciver"
+            android:enabled="false"/>
 
     </application>
 

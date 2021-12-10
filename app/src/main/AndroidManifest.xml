@@ -54,8 +54,14 @@
         <activity
             android:name=".UnusedActivities.FirstPage_Activity"
             android:exported="true" />
+
         <receiver android:name=".MessageReciver"
-            android:enabled="false"/>
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

@@ -4,6 +4,7 @@ public class Message {
     private String sender;
     private String description;
     private boolean isread;
+
     public Message(){}
 
     public Message(String sender, String description, boolean isread) {

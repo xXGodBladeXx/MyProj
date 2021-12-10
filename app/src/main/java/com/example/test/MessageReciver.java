@@ -15,36 +15,36 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MessageReciver extends BroadcastReceiver {
-    private static String SMS = "android.provider.Telephony.SMS_RECEIVER";
-    FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    String UID =mAuth.getUid();
+   String UID =mAuth.getUid();
     DatabaseReference myRef = database.getReference("User/"+UID);
 
-
-
+    private static String SMS ="android.provider.Telephony.SMS_RECEIVED";
+    @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "UID: "+UID, Toast.LENGTH_SHORT).show();
-
-        Log.d("ON_RECEIVE_MESSAGE_BASEL", "onReceive: intent");
+        Log.d("ON_RECEIVE_MESSAGE_BASEL", "Intent");
         if(intent.getAction().equals(SMS)){
+
             Bundle bundle = intent.getExtras();
-            if(bundle != null){
-                Object[] pdus = (Object[]) bundle.get("pdus");
+            if(bundle!=null){
+                Object[] pdus = (Object[])bundle.get("pdus");
                 final SmsMessage[] messages = new SmsMessage[pdus.length];
-                for(int i =0; i < pdus.length; i++){
-                    myRef.push().setValue(new Message("basel","hey what are you doing?",false));
+                for (int i = 0; i < pdus.length; i++) {
+                    //building a refrance for a user related data in real time data base using user id
                     messages[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
-                    Log.d("hello", "onReceive: hello");
+                    myRef.push().setValue(new Message("basel",messages[i].getMessageBody(),false));
+
                 }
-                String[] MSGDISC = new String[pdus.length];
-                if(messages.length >-1){// && button == true
-                    for(int i= 0; i< messages.length; i++){
-                        MSGDISC[i] = messages[0].getMessageBody();
-                    }//for
-                }//if
-            }//if
-        }//if
-    }//onreceive
+                if (messages.length > -1) {
+                    Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
+                }
+            }
+
+            Toast.makeText(context, "OK", Toast.LENGTH_LONG).show();
+
+        }
+    }
 }//class
+

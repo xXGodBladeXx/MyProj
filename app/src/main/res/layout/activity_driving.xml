@@ -49,8 +49,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:textColor="@color/black"
-        android:onClick="Logingo"
-        android:text="back"
+        android:onClick="Arraylistgo"
+        android:text="your messages"
         android:textSize="18dp" />
 
 

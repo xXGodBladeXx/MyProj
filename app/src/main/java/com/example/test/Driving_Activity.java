@@ -27,8 +27,8 @@ public class Driving_Activity extends AppCompatActivity {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  System.currentTimeMillis(),
                 1000 * 60 * 60 * 24, pendingIntent);
     }
-    public void Logingo(View view) {
-        Intent intent = new Intent(this, Login_Activity.class);
+    public void Arraylistgo(View view) {
+        Intent intent = new Intent(this, Arraylist_Activity.class);
         startActivity(intent);
     }
 }

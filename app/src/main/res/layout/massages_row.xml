@@ -11,13 +11,12 @@
         android:layout_height="129dp"
         android:gravity="center"
         android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/iamge"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ravmjkbpojg21" />
-
+        <TextView
+            android:id="@+id/sender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sender"
+            android:textSize="24sp" />
         <TextView
             android:id="@+id/textview123"
             android:layout_width="wrap_content"
@@ -25,10 +24,5 @@
             android:text="description"
             android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/itembut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="add" />
     </LinearLayout>
 </LinearLayout>

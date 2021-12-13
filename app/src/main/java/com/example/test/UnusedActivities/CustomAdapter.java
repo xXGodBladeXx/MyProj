@@ -34,10 +34,11 @@ public class CustomAdapter extends ArrayAdapter<Message> {
         }
         Message msg = getItem(position);//a counter for the resource
         if(msg!=null){
-            TextView desc = view.findViewById(R.id.textview123);
+            TextView desc = view.findViewById(R.id.msg);
             TextView sender = view.findViewById(R.id.sender);
 
             desc.setText(msg.getDescription());
+            sender.setText(msg.getSender());
         }
         return view;
     }

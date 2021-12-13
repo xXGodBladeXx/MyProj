@@ -53,13 +53,13 @@ public class Arraylist_Activity extends AppCompatActivity{
         //connect adapter with view
         myListView.setAdapter(myAdapter);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TTS = new TextToSpeech(, new TextToSpeech.OnInitListener() {
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                TTS = new TextToSpeech(Arraylist_Activity.this, new TextToSpeech.OnInitListener() {
                     @Override
                     public void onInit(int i) {
                         if(i == TextToSpeech.SUCCESS){//checks if the text to speak is ready to speak
                             TTS.setLanguage(Locale.UK);//language setter
-                                String text = list.get(i).getDescription();
+                                String text = list.get(pos).getSender()+" sent "+list.get(pos).getDescription();
                                 TTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
                         }
                     }

@@ -25,16 +25,15 @@ public class MessageReciver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("ON_RECEIVE_MESSAGE_BASEL", "Intent");
-        if(intent.getAction().equals(SMS)){
+        if(intent != null && intent.getAction() !=null){
+        if(intent.getAction().equals(SMS)) {
 
             Bundle bundle = intent.getExtras();
-            if(bundle!=null){
-                Object[] pdus = (Object[])bundle.get("pdus");
+            if (bundle != null) {
+                Object[] pdus = (Object[]) bundle.get("pdus");
                 final SmsMessage[] messages = new SmsMessage[pdus.length];
                 for (int i = 0; i < pdus.length; i++) {
-                    //building a refrance for a user related data in real time data base using user id
-                    messages[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
-                    myRef.push().setValue(new Message("basel",messages[i].getMessageBody(),false));
+                    messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
 
                 }
                 if (messages.length > -1) {
@@ -43,7 +42,7 @@ public class MessageReciver extends BroadcastReceiver {
             }
 
             Toast.makeText(context, "OK", Toast.LENGTH_LONG).show();
-
+        }
         }
     }
 }//class

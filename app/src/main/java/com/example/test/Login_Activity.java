@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Login_Activity extends AppCompatActivity implements View.OnLongClickListener ,DialogInterface.OnClickListener {
     private static final String TAG = "FireBase";
@@ -49,7 +51,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
             editTextTextPersonName.setText(email);
         }
         musicintent = new Intent(this,MusicService.class);
-        startService(musicintent);
+        //startService(musicintent);
 
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -43,6 +43,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
 
         //sets the OnClickListener on the wanted button
         loginc.setOnLongClickListener(this);
+
         SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);//creates a local file which saves the sp in it
         String email = sp.getString("email", "");//the email in the local file
         String password = sp.getString("password", "");//the password in the local file
@@ -52,6 +53,12 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         }
         musicintent = new Intent(this,MusicService.class);
         //startService(musicintent);
+        loginc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginfb(editTextTextPersonName.getText().toString(), editTextTextPassword.getText().toString());
+            }
+        });
 
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -95,7 +102,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         }
     }
 
-    public void login(View view) {
+    public void login() {
         //saving email of user in a local file (settings) for future use
         //create file if not found
             SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
@@ -103,11 +110,12 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
             SharedPreferences.Editor editor = sp.edit();
             //write the wanted settings
             editor.putString("email", editTextTextPersonName.getText().toString());
+            editor.putString("password", editTextTextPassword.getText().toString());
             //saves and closes file
             editor.commit();
 
 
-            loginfb(editTextTextPersonName.getText().toString(),editTextTextPassword.getText().toString());
+     //       loginfb(editTextTextPersonName.getText().toString(),editTextTextPassword.getText().toString());
     }
 
     public void signup(View view) {
@@ -136,6 +144,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
                             Log.d(TAG, "signInWithEmail:success");
                             Intent i = new Intent(Login_Activity.this, Driving_Activity.class);
                             FirebaseUser user = mAuth.getCurrentUser();
+                            login();
                             startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.

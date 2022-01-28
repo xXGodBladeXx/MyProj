@@ -1,4 +1,4 @@
-package com.example.test.UnusedActivities;
+package com.example.test;
 
 import android.content.Context;
 import android.view.LayoutInflater;

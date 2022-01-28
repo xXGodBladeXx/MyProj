@@ -28,7 +28,7 @@
             android:name=".Speak_Activity"
             android:exported="true" />
         <activity
-            android:name=".UnusedActivities.Arraylist_Activity"
+            android:name=".Arraylist_Activity"
             android:exported="true" />
         <activity
             android:name=".HowItWorks_Activity"

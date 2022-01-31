@@ -37,15 +37,13 @@ public class MessageReciver extends BroadcastReceiver {
                 final SmsMessage[] messages = new SmsMessage[pdus.length];
                 for (int i = 0; i < pdus.length; i++) {
                     messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
-                    myRef.push().setValue(new Message("basel","hello",false));
                 }
                 if (messages.length > -1) {
                     Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
-                    myRef.push().setValue(new Message("basel","hello",false));
+                    myRef.push().setValue(new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(),false));
                 }
             }
 
-            Toast.makeText(context, "OK", Toast.LENGTH_LONG).show();
         }
         }
     }

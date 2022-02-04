@@ -13,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
+        <activity
+            android:name=".FavArraylist_Activity"
+            android:exported="true" />
+
         <service
             android:name=".NotificationIntentService"
             android:exported="false" />
@@ -55,15 +59,15 @@
             android:name=".UnusedActivities.FirstPage_Activity"
             android:exported="true" />
 
-        <receiver android:name=".MessageReciver"
+        <receiver
+            android:name=".MessageReciver"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.READ_SMS">
             <intent-filter android:priority="2147483647">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

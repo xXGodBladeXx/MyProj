@@ -39,7 +39,15 @@ public class CustomAdapter extends ArrayAdapter<Message> {
 
             desc.setText(msg.getDescription());
             sender.setText(msg.getSender());
+            Button favbut= view.findViewById(R.id.favbut);
+            favbut.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //if(favbut)
+                }
+            });
         }
         return view;
     }
+
 }

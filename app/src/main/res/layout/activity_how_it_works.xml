@@ -30,7 +30,7 @@
       android:textColor="#a3a3a3"
       android:gravity="center"
       android:textSize="20dp"
-      android:text="first of all you have to make an account that will allow you to access our app, second of all login with your email and password, put your phone down and drive safely and the app will do the rest !"
+      android:text="first of all you have to make an account that will allow you to access our app, second of all login with your email and password, put your phone down and drive safely and all your unread messages will be saved and ready to be read !"
       android:layout_marginTop="70dp"
       />
   <Button

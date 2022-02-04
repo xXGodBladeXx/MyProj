@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="129dp"
+        android:layout_height="150dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -32,7 +32,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
         <TextView
@@ -49,8 +49,27 @@
             android:layout_height="wrap_content"
             android:text="description"
             android:layout_margin="5dp"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:layout_marginRight="10dp"/>
+
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/favbut"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:backgroundTint="#e2da66"
+                android:text="toggle fav"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
+                />
+        </LinearLayout>
+
 
 
     </LinearLayout>

@@ -19,14 +19,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class Arraylist_Activity extends AppCompatActivity{
+public class FavArraylist_Activity extends AppCompatActivity {
 
     //the object of the view - design
     private ListView myListView;
     //the object for the adaptor connection the data to the view
     private CustomAdapter myAdapter;
     //object containing the item to be displayed - Data
-    private ArrayList<Message> list;
+    private ArrayList<Message> favlist;
     private TextToSpeech TTS;
 
 
@@ -37,47 +37,42 @@ public class Arraylist_Activity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_arraylist);
-        list = new ArrayList<>();
-
-        //reference to the list view so it can programed
-        myListView = findViewById(R.id.listitem);
-        // connect adapter with Data
-        myAdapter = new CustomAdapter(this,R.layout.massages_row, list);
-        //connect adapter with view
+        setContentView(R.layout.activity_fav_arraylist);
+        favlist = new ArrayList<>();
+        myListView = findViewById(R.id.favlistitem);
+        myAdapter = new CustomAdapter(this,R.layout.massages_row, favlist);
         myListView.setAdapter(myAdapter);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-                TTS = new TextToSpeech(Arraylist_Activity.this, new TextToSpeech.OnInitListener() {
+                TTS = new TextToSpeech(FavArraylist_Activity.this, new TextToSpeech.OnInitListener() {
                     @Override
                     public void onInit(int i) {
                         if(i == TextToSpeech.SUCCESS){//checks if the text to speak is ready to speak
                             TTS.setLanguage(Locale.UK);//language setter
-                                String text = list.get(pos).getSender()+" sent "+list.get(pos).getDescription();
-                                TTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+                            String text = favlist.get(pos).getSender()+" sent "+favlist.get(pos).getDescription();
+                            TTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
                         }
                     }
                 });
             }
         });
-
         myListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                list.remove(i);
+                favlist.remove(i);
                 myAdapter.notifyDataSetChanged();
                 return false;
             }
         });
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Message msg = dataSnapshot.getValue(Message.class);
-                    list.add(msg);
+                    if(msg.getfav()) {
+                        favlist.add(msg);
+                    }
                     myAdapter.notifyDataSetChanged();
 
                 }
@@ -89,5 +84,4 @@ public class Arraylist_Activity extends AppCompatActivity{
             }
         });
     }
-
 }

@@ -25,7 +25,6 @@ public class MessageReciver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("ON_RECEIVE_MESSAGE_BASEL", "Intent");
-     //   myRef.push().setValue(new Message("basel","hello",false));
         if(intent != null && intent.getAction() !=null){
             Log.i(SMS, "Message recieved: " + "OBJECT NOT NULL");
         if(intent.getAction().equals(SMS)) {
@@ -40,7 +39,7 @@ public class MessageReciver extends BroadcastReceiver {
                 }
                 if (messages.length > -1) {
                     Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
-                    myRef.push().setValue(new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(),false));
+                    myRef.push().setValue(new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(),false,false));
                 }
             }
 

@@ -126,7 +126,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
     @Override
     public boolean onLongClick(View view) {
         editTextTextPersonName.setText("");
-        editTextTextPersonName.setText("");
+        editTextTextPassword.setText("");
         return true;
     }
 

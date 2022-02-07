@@ -15,12 +15,19 @@ import androidx.annotation.Nullable;
 
 import com.example.test.Message;
 import com.example.test.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 //a conector from the data to a view
 public class CustomAdapter extends ArrayAdapter<Message> {
     private Context context;//view for what i want to show
     private int resource;//id for xml in which order the arraylist will be shown
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private String UID = firebaseAuth.getUid();
+
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User/"+UID);
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Message> objects) {
         super(context, resource, objects);
         this.context=context;
@@ -43,7 +50,9 @@ public class CustomAdapter extends ArrayAdapter<Message> {
             favbut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //if(favbut)
+                    if(favbut.isPressed() && !msg.getfav()){
+                        //reference.child().child()
+                    }
                 }
             });
         }

@@ -18,33 +18,37 @@ public class MessageReciver extends BroadcastReceiver {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-   String UID =mAuth.getUid();
-    DatabaseReference myRef = database.getReference("User/"+UID);
+    String UID = mAuth.getUid();
+    DatabaseReference myRef = database.getReference("User/" + UID);
 
-    private static String SMS ="android.provider.Telephony.SMS_RECEIVED";
+    private static String SMS = "android.provider.Telephony.SMS_RECEIVED";
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("ON_RECEIVE_MESSAGE_BASEL", "Intent");
-        if(intent != null && intent.getAction() !=null){
+        if (intent != null && intent.getAction() != null) {
             Log.i(SMS, "Message recieved: " + "OBJECT NOT NULL");
-        if(intent.getAction().equals(SMS)) {
+            if (intent.getAction().equals(SMS)) {
 
-            Bundle bundle = intent.getExtras();
-            if (bundle != null) {
-                Log.i(SMS, "Message recieved: " + "BUNDLE NOT NULL");
-                Object[] pdus = (Object[]) bundle.get("pdus");
-                final SmsMessage[] messages = new SmsMessage[pdus.length];
-                for (int i = 0; i < pdus.length; i++) {
-                    messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
-                }
-                if (messages.length > -1) {
-                    Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
-                    myRef.push().setValue(new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(),false,false));
+                Bundle bundle = intent.getExtras();
+                if (bundle != null) {
+                    Log.i(SMS, "Message recieved: " + "BUNDLE NOT NULL");
+                    Object[] pdus = (Object[]) bundle.get("pdus");
+                    final SmsMessage[] messages = new SmsMessage[pdus.length];
+                    for (int i = 0; i < pdus.length; i++) {
+                        messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
+                    }
+                    if (messages.length > -1) {
+                        Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
+
+                        String key = myRef.push().getKey();
+                        Message m1 = new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(), false, false);
+                        m1.setKey(key);
+                        myRef.setValue(m1);
+                    }
+
                 }
             }
-
-        }
         }
     }
-}//class
-
+}

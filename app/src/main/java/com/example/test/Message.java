@@ -5,6 +5,7 @@ public class Message {
     private String description;
     private boolean isread;
     private boolean fav;
+    private String key;
 
     public Message(){}
 
@@ -15,6 +16,10 @@ public class Message {
         this.fav=fav;
 
     }
+
+    public String getKey() { return key; }
+
+    public void setKey(String key) { this.key = key; }
 
     public boolean isIsread() {
         return isread;

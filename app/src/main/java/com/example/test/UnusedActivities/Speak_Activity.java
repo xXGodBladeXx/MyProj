@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.UnusedActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.test.R;
 
 import java.util.Locale;
 

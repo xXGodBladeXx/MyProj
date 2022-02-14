@@ -29,7 +29,7 @@
             android:name=".Camera_Activity"
             android:exported="true" />
         <activity
-            android:name=".Speak_Activity"
+            android:name=".UnusedActivities.Speak_Activity"
             android:exported="true" />
         <activity
             android:name=".Arraylist_Activity"

@@ -24,10 +24,12 @@ import java.util.List;
 public class CustomAdapter extends ArrayAdapter<Message> {
     private Context context;//view for what i want to show
     private int resource;//id for xml in which order the arraylist will be shown
-    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    private String UID = firebaseAuth.getUid();
 
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User/"+UID);
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    String UID = mAuth.getUid();
+    DatabaseReference myRef = database.getReference("User/" + UID);
+
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Message> objects) {
         super(context, resource, objects);
         this.context=context;
@@ -43,15 +45,16 @@ public class CustomAdapter extends ArrayAdapter<Message> {
         if(msg!=null){
             TextView desc = view.findViewById(R.id.msg);
             TextView sender = view.findViewById(R.id.sender);
+            Button favbut= view.findViewById(R.id.favbut);
 
             desc.setText(msg.getDescription());
             sender.setText(msg.getSender());
-            Button favbut= view.findViewById(R.id.favbut);
             favbut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(favbut.isPressed() && !msg.getfav()){
-                        //reference.child().child()
+                    //myRef = database.getReference("User/"+UID+"/"+msg.getKey());
+                    if(!msg.getfav()){
+                        myRef.child("fav").setValue(true);
                     }
                 }
             });

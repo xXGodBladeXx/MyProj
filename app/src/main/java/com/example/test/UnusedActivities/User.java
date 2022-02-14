@@ -1,4 +1,6 @@
-package com.example.test;
+package com.example.test.UnusedActivities;
+
+import com.example.test.Message;
 
 import java.util.ArrayList;
 

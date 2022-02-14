@@ -50,6 +50,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         if (!email.equals("") && !password.equals("")) {//checks if the edit text is empty and if it is it
             // presets the email with the email that it saved from before
             editTextTextPersonName.setText(email);
+            editTextTextPassword.setText(password);
         }
         musicintent = new Intent(this,MusicService.class);
         //startService(musicintent);

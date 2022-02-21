@@ -41,10 +41,8 @@ public class MessageReciver extends BroadcastReceiver {
                     if (messages.length > -1) {
                         Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
 
-                        String key = myRef.push().getKey();
-                        Message message = new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(), false, false);
-                        message.setKey(key);
-                        myRef.setValue(message);
+                        myRef.push().setValue(new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(),false,false));
+
                     }
 
                 }

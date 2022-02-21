@@ -28,7 +28,7 @@ public class CustomAdapter extends ArrayAdapter<Message> {
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String UID = mAuth.getUid();
-    DatabaseReference myRef = database.getReference("User/" + UID);
+    DatabaseReference myRef = database.getReference("Users/" + UID + "/favorites");
 
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Message> objects) {
         super(context, resource, objects);
@@ -52,9 +52,15 @@ public class CustomAdapter extends ArrayAdapter<Message> {
             favbut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //myRef = database.getReference("User/"+UID+"/"+msg.getKey());
-                    if(!msg.getfav()){
-                        myRef.child("fav").setValue(true);
+                    if(!msg.getfav()) {
+                        msg.setFav(true);
+                        myRef.push().setValue(msg);
+                        Toast.makeText(context, "Added to favorites", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        msg.setFav(false);
+                        myRef.child("key").removeValue();
+                        Toast.makeText(context, "Removed from favorites", Toast.LENGTH_LONG).show();
                     }
                 }
             });

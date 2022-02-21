@@ -5,9 +5,6 @@ public class Message {
     private String description;
     private boolean isread;
     private boolean fav;
-    private String key;
-
-    public Message(){}
 
     public Message(String sender, String description, boolean isread, boolean fav) {
         this.sender=sender;
@@ -16,18 +13,7 @@ public class Message {
         this.fav=fav;
 
     }
-
-    public String getKey() { return key; }
-
-    public void setKey(String key) { this.key = key; }
-
-    public boolean isIsread() {
-        return isread;
-    }
-
-    public void setIsread(boolean isread) {
-        this.isread = isread;
-    }
+    public Message(){}
 
     public String getSender() {
         return sender;
@@ -45,6 +31,12 @@ public class Message {
         this.description = description;
     }
 
+    public boolean isIsread() {
+        return isread;
+    }
+    public void setIsread(boolean isread) {
+        this.isread = isread;
+    }
     public boolean getfav() {
         return fav;
     }
@@ -52,5 +44,4 @@ public class Message {
     public void setFav(boolean fav) {
         this.fav = fav;
     }
-
 }

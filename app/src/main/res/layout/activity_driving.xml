@@ -29,7 +29,7 @@
         android:textSize="20dp"
         android:text="We are off!"
         android:textColor="#a3a3a3"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         />
     <TextView
         android:id="@+id/text2"
@@ -44,14 +44,24 @@
         />
     <Button
         android:backgroundTint="#e2da66"
-        android:id="@+id/buttonLogin"
+        android:id="@+id/favlistgo"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:textColor="@color/black"
+        android:onClick="FavArraylistgo"
+        android:text="your favurate messages"
+        android:textSize="18dp" />
+    <Button
+        android:backgroundTint="#e2da66"
+        android:id="@+id/listgo"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
         android:onClick="Arraylistgo"
         android:text="your messages"
         android:textSize="18dp" />
+
 
 
 </LinearLayout>

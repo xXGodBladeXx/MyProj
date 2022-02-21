@@ -28,4 +28,8 @@ public class Driving_Activity extends AppCompatActivity {
         Intent intent = new Intent(this, Arraylist_Activity.class);
         startActivity(intent);
     }
+    public void FavArraylistgo(View view) {
+        Intent intent = new Intent(this, FavArraylist_Activity.class);
+        startActivity(intent);
+    }
 }

@@ -59,7 +59,7 @@ public class CustomAdapter extends ArrayAdapter<Message> {
                     }
                     else {
                         msg.setFav(false);
-                        myRef.child("key").removeValue();
+                        myRef.child("favoritesid").removeValue();
                         Toast.makeText(context, "Removed from favorites", Toast.LENGTH_LONG).show();
                     }
                 }

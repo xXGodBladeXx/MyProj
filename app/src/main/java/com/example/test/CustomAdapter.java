@@ -1,5 +1,4 @@
 package com.example.test;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +27,7 @@ public class CustomAdapter extends ArrayAdapter<Message> {
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String UID = mAuth.getUid();
-    DatabaseReference myRef = database.getReference("Users/" + UID + "/favorites");
+    DatabaseReference myRef = database.getReference("User/" + UID + "/favorites");
 
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Message> objects) {
         super(context, resource, objects);
@@ -55,7 +54,15 @@ public class CustomAdapter extends ArrayAdapter<Message> {
                     if(!msg.getfav()) {
                         msg.setFav(true);
                         myRef.push().setValue(msg);
+                        myRef = database.getReference("User/" + UID + "/Messages"+ "/" +msg.getKey());
+                        myRef.removeValue();
+                        String key = myRef.push().getKey();
+                        myRef = database.getReference("User/" + UID + "/favorites" + "/"+key);
+                        msg.setKey(key);
                         Toast.makeText(context, "Added to favorites", Toast.LENGTH_LONG).show();
+//                        msg.setFav(true);
+//                        myRef.push().setValue(msg);
+//                        Toast.makeText(context, "Added to favorites", Toast.LENGTH_LONG).show();
                     }
                     else {
                         msg.setFav(false);

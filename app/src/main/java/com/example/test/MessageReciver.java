@@ -19,7 +19,7 @@ public class MessageReciver extends BroadcastReceiver {
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String UID = mAuth.getUid();
-    DatabaseReference myRef = database.getReference("User/" + UID);
+    DatabaseReference myRef = database.getReference("User/" + UID + "/Messages");
 
     private static String SMS = "android.provider.Telephony.SMS_RECEIVED";
 
@@ -41,7 +41,12 @@ public class MessageReciver extends BroadcastReceiver {
                     if (messages.length > -1) {
                         Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
 
-                        myRef.push().setValue(new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(),false,false));
+
+                        String key = myRef.push().getKey();
+                        myRef = database.getReference("User/" + UID + "/Messages"+ "/" +key);
+                        Message m1 = new Message(messages[0].getOriginatingAddress(), messages[0].getMessageBody(), false, false);
+                        m1.setKey(key);
+                        myRef.setValue(m1);
 
                     }
 

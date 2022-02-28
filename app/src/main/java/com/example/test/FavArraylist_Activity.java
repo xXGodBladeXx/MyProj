@@ -33,7 +33,7 @@ public class FavArraylist_Activity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String UID =mAuth.getUid();
-    DatabaseReference myRef = database.getReference("Users/" + UID + "/favorites");
+    DatabaseReference myRef = database.getReference("User/" + UID + "/favorites");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

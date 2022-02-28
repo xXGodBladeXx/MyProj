@@ -33,7 +33,7 @@ public class Arraylist_Activity extends AppCompatActivity{
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String UID =mAuth.getUid();
-    DatabaseReference myRef = database.getReference("User/"+UID);
+    DatabaseReference myRef = database.getReference("User/" + UID + "/Messages");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

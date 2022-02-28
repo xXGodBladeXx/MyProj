@@ -5,15 +5,25 @@ public class Message {
     private String description;
     private boolean isread;
     private boolean fav;
+    private String key;
 
-    public Message(String sender, String description, boolean isread, boolean fav) {
-        this.sender=sender;
-        this.description=description;
-        this.isread=isread;
-        this.fav=fav;
+    public Message(){
 
     }
-    public Message(){}
+    public Message(String sender, String description, boolean isread, boolean fav) {
+        this.sender = sender;
+        this.description = description;
+        this.isread = isread;
+        this.fav = fav;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public String getSender() {
         return sender;

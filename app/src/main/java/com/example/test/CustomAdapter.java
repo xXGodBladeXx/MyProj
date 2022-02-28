@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ import java.util.List;
 public class CustomAdapter extends ArrayAdapter<Message> {
     private Context context;//view for what i want to show
     private int resource;//id for xml in which order the arraylist will be shown
+
+
 
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://basels-project-default-rtdb.europe-west1.firebasedatabase.app/");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -53,20 +56,32 @@ public class CustomAdapter extends ArrayAdapter<Message> {
                 public void onClick(View view) {
                     if(!msg.getfav()) {
                         msg.setFav(true);
-                        myRef.push().setValue(msg);
+
                         myRef = database.getReference("User/" + UID + "/Messages"+ "/" +msg.getKey());
                         myRef.removeValue();
+
                         String key = myRef.push().getKey();
-                        myRef = database.getReference("User/" + UID + "/favorites" + "/"+key);
+                        myRef = database.getReference("User/" + UID + "/favorites"+ "/" +key);
                         msg.setKey(key);
+                        myRef.setValue(msg);
+
+
+
                         Toast.makeText(context, "Added to favorites", Toast.LENGTH_LONG).show();
-//                        msg.setFav(true);
-//                        myRef.push().setValue(msg);
-//                        Toast.makeText(context, "Added to favorites", Toast.LENGTH_LONG).show();
+//                        remove the row from the list it self
+//                        fix the duplicate problem
                     }
                     else {
                         msg.setFav(false);
-                        myRef.child("favoritesid").removeValue();
+
+                        myRef = database.getReference("User/" + UID + "/favorites" + "/" +msg.getKey());
+                        myRef.removeValue();
+
+                        String key = myRef.push().getKey();
+                        myRef = database.getReference("User/" + UID + "/Messages" + "/" +key);
+                        msg.setKey(key);
+                        myRef.setValue(msg);
+
                         Toast.makeText(context, "Removed from favorites", Toast.LENGTH_LONG).show();
                     }
                 }

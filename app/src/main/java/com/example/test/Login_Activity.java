@@ -119,7 +119,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
      //       loginfb(editTextTextPersonName.getText().toString(),editTextTextPassword.getText().toString());
     }
 
-    public void signup(View view) {
+    public void signupgo(View view) {
         Intent intent = new Intent(this, SignUp_Activity.class);
         startActivity(intent);
     }

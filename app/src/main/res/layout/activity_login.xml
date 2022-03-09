@@ -84,7 +84,7 @@
         android:textSize="15dp"
         android:text="Don't have an account? signup"
         android:textColor="#a3a3a3"
-        android:onClick="signup"
+        android:onClick="signupgo"
         />
 
 </LinearLayout>

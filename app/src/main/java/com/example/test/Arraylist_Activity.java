@@ -75,17 +75,17 @@ public class Arraylist_Activity extends AppCompatActivity{
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.removeAll(list);
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Message msg = dataSnapshot.getValue(Message.class);
                     list.add(msg);
                     myAdapter.notifyDataSetChanged();
-
                 }
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }

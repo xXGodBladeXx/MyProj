@@ -68,6 +68,7 @@ public class FavArraylist_Activity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                favlist.removeAll(favlist);
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Message msg = dataSnapshot.getValue(Message.class);
                     if(msg.getfav()) {

@@ -21,15 +21,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Login_Activity extends AppCompatActivity implements View.OnLongClickListener ,DialogInterface.OnClickListener {
-    private static final String TAG = "FireBase";
     private Intent musicintent;
     private Button loginc;
-    private EditText editTextTextPersonName;
-    private EditText editTextTextPassword;
+    private EditText Email;
+    private EditText Password;
     private FirebaseAuth mAuth;//auth = authentication אימות
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +34,8 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();//a method that connects the firebase console with the project
-        editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
-        editTextTextPassword = findViewById(R.id.editTextTextPassword);
+        Email = findViewById(R.id.editTextTextPersonName);
+        Password = findViewById(R.id.editTextTextPassword);
         loginc = findViewById(R.id.buttonLogin);
 
         //sets the OnClickListener on the wanted button
@@ -49,15 +46,15 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         String password = sp.getString("password", "");//the password in the local file
         if (!email.equals("") && !password.equals("")) {//checks if the edit text is empty and if it is it
             // presets the email with the email that it saved from before
-            editTextTextPersonName.setText(email);
-            editTextTextPassword.setText(password);
+            Email.setText(email);
+            Password.setText(password);
         }
         musicintent = new Intent(this,MusicService.class);
         //startService(musicintent);
         loginc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginfb(editTextTextPersonName.getText().toString(), editTextTextPassword.getText().toString());
+                loginfb(Email.getText().toString(), Password.getText().toString());
             }
         });
 
@@ -103,15 +100,15 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
         }
     }
 
-    public void login() {
+    public void loginSP() {
         //saving email of user in a local file (settings) for future use
         //create file if not found
             SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
             //open editor for editing
             SharedPreferences.Editor editor = sp.edit();
             //write the wanted settings
-            editor.putString("email", editTextTextPersonName.getText().toString());
-            editor.putString("password", editTextTextPassword.getText().toString());
+            editor.putString("email", Email.getText().toString());
+            editor.putString("password", Password.getText().toString());
             //saves and closes file
             editor.commit();
 
@@ -126,8 +123,8 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
 
     @Override
     public boolean onLongClick(View view) {
-        editTextTextPersonName.setText("");
-        editTextTextPassword.setText("");
+        Email.setText("");
+        Password.setText("");
         return true;
     }
 
@@ -142,14 +139,14 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
+                            Log.d("FireBase", "signInWithEmail:success");
                             Intent i = new Intent(Login_Activity.this, Driving_Activity.class);
                             FirebaseUser user = mAuth.getCurrentUser();
-                            login();
+                            loginSP();
                             startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());//a description of the error for the task that wasn't successful
+                            Log.w("FireBase", "signInWithEmail:failure", task.getException());//a description of the error for the task that wasn't successful
                             Toast.makeText(Login_Activity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }

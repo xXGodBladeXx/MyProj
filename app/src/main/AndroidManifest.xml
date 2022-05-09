@@ -8,9 +8,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/newlogo"
+        android:label="Drivers alert"
+        android:roundIcon="@drawable/newlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
         <activity
@@ -18,7 +18,7 @@
             android:exported="true" />
 
         <service
-            android:name=".NotificationIntentService"
+            android:name=".UnusedActivities.NotificationIntentService"
             android:exported="false" />
         <service
             android:name=".MusicService"

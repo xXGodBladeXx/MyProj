@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.UnusedActivities;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -10,6 +10,9 @@ import android.content.Context;
 import android.os.Build;
 
 import androidx.core.app.NotificationManagerCompat;
+
+import com.example.test.Driving_Activity;
+import com.example.test.R;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -34,7 +37,7 @@ public class NotificationIntentService extends IntentService {
         noBuilder.setContentTitle("this is the Notification title");
         noBuilder.setContentText("this is the Notification body");
         noBuilder.setSmallIcon(R.drawable.logo);
-        Intent noIntent = new Intent(this,Driving_Activity.class);
+        Intent noIntent = new Intent(this, Driving_Activity.class);
         PendingIntent pendingintent = PendingIntent.getActivity(this,2,noIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         noBuilder.setContentIntent(pendingintent);
         Notification notification = noBuilder.build();

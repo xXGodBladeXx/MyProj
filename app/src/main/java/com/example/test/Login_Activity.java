@@ -50,7 +50,7 @@ public class Login_Activity extends AppCompatActivity implements View.OnLongClic
             Password.setText(password);
         }
         musicintent = new Intent(this,MusicService.class);
-        //startService(musicintent);
+        startService(musicintent);
         loginc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

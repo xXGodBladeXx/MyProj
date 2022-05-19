@@ -33,10 +33,10 @@ public class MessageReciver extends BroadcastReceiver {
                 Bundle bundle = intent.getExtras();
                 if (bundle != null) {
                     Log.i(SMS, "Message recieved: " + "BUNDLE NOT NULL");
-                    Object[] pdus = (Object[]) bundle.get("pdus");
-                    final SmsMessage[] messages = new SmsMessage[pdus.length];
-                    for (int i = 0; i < pdus.length; i++) {
-                        messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
+                    Object[] p = (Object[]) bundle.get("p");
+                    final SmsMessage[] messages = new SmsMessage[p.length];
+                    for (int i = 0; i < p.length; i++) {
+                        messages[i] = SmsMessage.createFromPdu((byte[]) p[i]);
                     }
                     if (messages.length > -1) {
                         Log.i(SMS, "Message recieved: " + messages[0].getMessageBody());
